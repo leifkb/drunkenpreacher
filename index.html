@@ -1,5 +1,23 @@
 <!doctype html>
-<script>
+<title>Drunken Preacher</title>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<style type="text/css">
+body {
+    background: url(preacher.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#start {
+    width: 15em;
+    padding: 0.5em;
+    background: black;
+    color: white;
+    margin: auto;
+    border-radius: 0.5em;
+}
+</style>
+<script type="text/javascript">
 var getNextFilename = (function() {
     var COUNT = 1030;
     var used = [];
@@ -51,4 +69,4 @@ function start() {
 
 start();
 </script>
-<div id="start" onclick="start()">start</div>
+<div id="start" onclick="start()">start preaching</div>
