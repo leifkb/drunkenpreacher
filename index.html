@@ -1,0 +1,41 @@
+<!doctype html>
+<script>
+var getNextFilename = (function() {
+    var COUNT = 1030;
+    var used = [];
+    return function() {
+        if (used.length === COUNT) {
+            used = [];
+        }
+        var i;
+        while (true) {
+            i = Math.floor(COUNT * Math.random());
+            if (used.indexOf(i) === -1) break;
+        }
+        used.push(i);
+        console.log(i);
+        return 'audio/' + i + '.mp3';
+    };
+})();
+
+
+var audio = document.createElement('audio');
+audio.src = getNextFilename();
+
+var preload = document.createElement('audio');
+preload.src = getNextFilename();
+preload.load();
+
+function audioEnded() {
+    audio = preload;
+    audio.onended = audioEnded;
+    audio.play();
+    preload = document.createElement('audio');
+    preload.src = getNextFilename();
+    preload.load();
+}
+
+audio.onended = audioEnded;
+
+audio.play();
+</script>
