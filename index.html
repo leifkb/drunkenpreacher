@@ -37,10 +37,18 @@ function audioEnded() {
 audio.onended = audioEnded;
 preload.onended = audioEnded;
 
-//audio.play();
+audio.onplaying = function() {
+    var elt = document.getElementById('start');
+    if (elt) {
+        elt.parentNode.removeChild(elt);
+    }
+};
+
 function start() {
     audio.play();
     preload.load()
 }
+
+start();
 </script>
 <div id="start" onclick="start()">start</div>
