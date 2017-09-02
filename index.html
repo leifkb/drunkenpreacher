@@ -19,10 +19,10 @@ var getNextFilename = (function() {
 })();
 
 
-var audio = document.createElement('audio');
+var audio = document.createElement('video');
 audio.src = getNextFilename();
 
-var preload = document.createElement('audio');
+var preload = document.createElement('video');
 preload.src = getNextFilename();
 preload.load();
 
@@ -30,7 +30,7 @@ function audioEnded() {
     audio = preload;
     audio.onended = audioEnded;
     audio.play();
-    preload = document.createElement('audio');
+    preload = document.createElement('video');
     preload.src = getNextFilename();
     preload.load();
 }
