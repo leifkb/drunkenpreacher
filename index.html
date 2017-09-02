@@ -30,6 +30,7 @@ function audioEnded() {
     audio = preload;
     preload = temp;
     audio.play();
+    preload.src = getNextFilename();
     preload.load();
 }
 
