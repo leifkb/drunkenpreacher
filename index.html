@@ -28,7 +28,7 @@ preload.src = getNextFilename();
 function audioEnded() {
     var temp = audio;
     audio = preload;
-    preload = tmp;
+    preload = temp;
     audio.play();
     preload.load();
 }
