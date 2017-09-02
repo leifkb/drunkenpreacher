@@ -37,5 +37,9 @@ function audioEnded() {
 
 audio.onended = audioEnded;
 
-audio.play();
+//audio.play();
+function start() {
+    audio.play();
+}
 </script>
+<div id="start" onclick="start()">start</div>
