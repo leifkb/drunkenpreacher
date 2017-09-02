@@ -24,13 +24,10 @@ audio.src = getNextFilename();
 
 var preload = document.createElement('video');
 preload.src = getNextFilename();
-preload.load();
 
 function audioEnded() {
-    audio = preload;
-    audio.onended = audioEnded;
+    audio.src = preload.src;
     audio.play();
-    preload = document.createElement('video');
     preload.src = getNextFilename();
     preload.load();
 }
@@ -40,6 +37,7 @@ audio.onended = audioEnded;
 //audio.play();
 function start() {
     audio.play();
+    preload.load()
 }
 </script>
 <div id="start" onclick="start()">start</div>
