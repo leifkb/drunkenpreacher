@@ -26,13 +26,15 @@ var preload = document.createElement('video');
 preload.src = getNextFilename();
 
 function audioEnded() {
-    audio.src = preload.src;
+    var temp = audio;
+    audio = preload;
+    preload = tmp;
     audio.play();
-    preload.src = getNextFilename();
     preload.load();
 }
 
 audio.onended = audioEnded;
+preload.onended = audioEnded;
 
 //audio.play();
 function start() {
